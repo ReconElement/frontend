@@ -1,5 +1,5 @@
 import './Contents.css'
-export default function Contents(){
+// export default function Contents(){
     // function handleSubmit(e){
     //     e.preventDefault();//Prevent the browser from reloading the page
         
@@ -12,5 +12,22 @@ export default function Contents(){
     //         </label>
     //     </form>
     // )
+// }
+
+import { useForm } from 'react-hook-form'
+const Contents = ()=>{
+    const {register, handleSubmit} = useForm();
+    const onSubmit = (data)=>{
+        console.log(data.title);
+        console.log(data.text);
+    }
+    return(
+        <form onSubmit={handleSubmit(onSubmit)}>
+            <label className="label">Title <input className="titleForm" {...register("title")} type="text" placeholder="add title" /></label><br/>
+            <label className="label">Note <textarea className="textbox" cols="50" rows="5" {...register("text") }></textarea></label><br/>
+            <button type="submit">Submit</button>
+        </form>
+    )
 }
 
+export default Contents;
