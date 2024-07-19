@@ -1,0 +1,13 @@
+.label{
+    background-color: cornsilk;
+    font-family:"JetBrains Mono","Arial",monospace;
+}
+
+.titleform{
+    width: 90%;
+    padding: 2px;
+}
+
+.textbox{
+    padding: 2px;
+}
