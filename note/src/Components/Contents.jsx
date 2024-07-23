@@ -16,16 +16,19 @@ import './Contents.css'
 
 import { useForm } from 'react-hook-form'
 const Contents = ()=>{
-    const {register, handleSubmit} = useForm();
+    const {register, handleSubmit, reset} = useForm({
+        title: "",
+        text: ""
+    });
     const onSubmit = (data)=>{
         console.log(data.title);
         console.log(data.text);
     }
     return(
         <form onSubmit={handleSubmit(onSubmit)}>
-            <label className="label">Title <input className="titleForm" {...register("title")} type="text" placeholder="add title" /></label><br/>
-            <label className="label">Note <textarea className="textbox" cols="50" rows="5" {...register("text") }></textarea></label><br/>
-            <button type="submit">Submit</button>
+            <label className="label">Title <input className="titleForm" {...register("title")} type="text" placeholder="add title" id='title'  /></label><br/>
+            <label className="label">Note <textarea className="textbox" cols="50" rows="5" {...register("text") } id='text' ></textarea></label><br/>
+            <button type="submit" >Submit</button>
         </form>
     )
 }
